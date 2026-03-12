@@ -56,7 +56,7 @@
 <script setup>
 import { ref, computed, onMounted } from "vue";
 import { useRouter } from "vue-router";
-import { useEventStore } from "../../store/event";
+import { useEventStore } from "@/store/event";
 
 const router = useRouter();
 

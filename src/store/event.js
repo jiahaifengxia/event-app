@@ -7,7 +7,7 @@ export const useEventStore = defineStore("event", {
     localEvents: [],
     loading: false,
 
-    page: 0,
+    page: 1,
     size: 10,
     total: 0,
   }),
@@ -20,10 +20,14 @@ export const useEventStore = defineStore("event", {
   },
 
   actions: {
-    async fetchEvents(page = 0) {
+    async fetchEvents(page = 1) {
       this.loading = true;
+      let data = {
+        page,
+        size: this.size,
+      };
 
-      const res = await getEvents(page, this.size);
+      const res = await getEvents(data);
 
       this.apiEvents = res.data._embedded?.events || [];
 

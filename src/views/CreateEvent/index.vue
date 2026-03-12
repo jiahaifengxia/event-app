@@ -17,10 +17,10 @@ const router = useRouter();
 const store = useEventStore();
 
 const form = reactive({
-  title: "",
-  description: "",
+  name: "",
   date: "",
-  location: "",
+  image: "",
+  info: "",
 });
 
 const submit = () => {

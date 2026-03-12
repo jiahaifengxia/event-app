@@ -19,9 +19,11 @@
 import { ref, onMounted } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { getEventDetail } from "@/api/event";
+import { useEventStore } from "@/store/event";
 
 const route = useRoute();
 const router = useRouter();
+const store = useEventStore();
 
 const event = ref(null);
 
@@ -30,9 +32,14 @@ onMounted(async () => {
     router.push("/");
     return;
   }
-  const res = await getEventDetail(route.params.id);
-  if (res) {
+  if (route.params.test) {
+    const res = await getEventDetail(route.params.id);
     event.value = res.data;
+  } else {
+    console.log(store.allEvents, route.params.id);
+
+    event.value = store.allEvents.find((e) => e.id == route.params.id);
+    console.log(event.value);
   }
 });
 
