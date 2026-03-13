@@ -9,6 +9,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@capacitor/android": "^8.2.0",
+    "@capacitor/cli": "^7.6.0",
+    "@capacitor/core": "^8.2.0",
     "axios": "^1.13.6",
     "element-plus": "^2.13.5",
     "pinia": "^3.0.4",
